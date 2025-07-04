@@ -1,0 +1,55 @@
+[gd_scene load_steps=8 format=3 uid="uid://1i1d5rapp8tf"]
+
+[ext_resource type="Script" path="res://image_python.gd" id="1_nfu2c"]
+[ext_resource type="Script" path="res://camera_3d.gd" id="2_2xfl7"]
+[ext_resource type="PackedScene" uid="uid://ccy1obmaryxgk" path="res://suzanne.glb" id="3_fk0l2"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_kshjn"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_ekypn"]
+sky_material = SubResource("ProceduralSkyMaterial_kshjn")
+
+[sub_resource type="Environment" id="Environment_gb384"]
+background_mode = 2
+sky = SubResource("Sky_ekypn")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_pi4lc"]
+viewport_path = NodePath("SubViewport")
+
+[node name="Node2D" type="Node2D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_gb384")
+
+[node name="image_python" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(640, 480)
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_nfu2c")
+
+[node name="render_godot" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(640, 480)
+offset_right = 40.0
+offset_bottom = 40.0
+texture = SubResource("ViewportTexture_pi4lc")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+transparent_bg = true
+size = Vector2i(640, 480)
+
+[node name="Camera3D" type="Camera3D" parent="SubViewport"]
+transform = Transform3D(0.950093, 0.0313085, -0.310391, -0.310202, -0.0108184, -0.950609, -0.0331201, 0.999451, -0.000566469, -0.0249386, -0.228857, 0.0419809)
+current = true
+fov = 43.4
+near = 0.005
+script = ExtResource("2_2xfl7")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 0.866026, -0.5, 0, 0.5, 0.866026, 10, -5, 2)
+
+[node name="Suzanne" parent="SubViewport" instance=ExtResource("3_fk0l2")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.00172932, 0, 0.0525361)
