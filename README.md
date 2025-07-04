@@ -64,8 +64,7 @@ For this Part 1, no need to calibrate the camera as the image is provided (image
     - Identify the folder “**2_Py-image**”
     - Identify the file “*send_data-image.py*” in the folder “2_Py-image”
     - Execute Python code: “*send_data-image.py*” in Python
-
-After the first step, the AR image will be displayed in Godot.
+    - After the second step, the AR image will be displayed in Godot.
 
 ### Part 2: AR on a video
 For this Part2, no need to calibrate the camera as the video is provided (video.avi) as well as the internal camera parameters (cam_distcoef.npy and cam_mint.npy) used for the video.
@@ -77,8 +76,7 @@ For this Part2, no need to calibrate the camera as the video is provided (video.
     - Identify the folder “**3_Py-video**”
     - Identify the file “*send_data-video.py*” in the folder “3_Py-video”
     - Execute Python code: “*send_data-video.py*” in Python
-
-After the second step, the AR video will be displayed in Godot.
+    - After the second step, the AR video will be displayed in Godot.
 
 ### Part 3: AR on live image
 For this Part 3, you use your own camera for AR. So, you need to calibrate your camera (computation of the internal camera parameters ("*cam_distcoef.npy*" and "*cam_mint.npy*").
@@ -99,8 +97,7 @@ For this Part 3, you use your own camera for AR. So, you need to calibrate your 
     - Print the document “*Aruco_Marker.pdf*” and measure the size of the black square (in meters)
     - Identify the file “*send_data-cam.py*” in the folder “4_Py-livecam”. In the code (line 26), set the size of the marker (in meters). For instance, my marker is 9.6 cm.
     - Execute Python code: “*send_data-cam.py*” in Python
-
-After the third step, the AR will be display in Godot according to the image provided by the camera (in streaming). The marker should be entirely viewed by the camera.
+    - After the third step, the AR will be display in Godot according to the image provided by the camera (in streaming). The marker should be entirely viewed by the camera.
 
 ## Acknowledgments
 This project benefited from some very useful OpenCV documentation. The Aruco library was very useful as well.
